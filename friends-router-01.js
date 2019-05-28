@@ -4,6 +4,39 @@ var router = express.Router();          // Router object for routes
 var friendModel = require('./models/friends-01');
 
 
+//******************* */
+router.put('/friends/:id/:birthDate/:firstName', function FriendsPutHandler() {
+    friendModel.update( 
+        request.body.birthDate,
+        request.body.firstName,
+        request.body.lastName,
+        request.body.gender,
+        request.body.phone, 
+        function DoneUpdating(err, updateId){
+            if (err){
+                console.log("Some error updating");
+                console.log(err);
+                response.write("Error updating");
+            }else{
+                response.json({ updatedId: updateId });
+            }
+        } );
+});
+
+router.delete('/friends/:id', function FriendsPutHandler() {
+    friendModel.delete(request.params.id, function DoneGettingById(err, result, fields){
+        if (err){
+            console.log("Some error deleting");
+            console.log(err);
+            response.write("Error deleting");
+        }else {
+            console.log("Success deleting");
+            console.log(err);
+            response.write("Success deleting");
+        }
+    });
+});
+//******************** */
 
 router.post('/friends', 
     function FriendsPostHandler(request, response){
