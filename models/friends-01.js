@@ -15,7 +15,7 @@ exports.insert = function InsertHandler(birthDate, firstName, lastName, gender, 
 
 exports.getAll = function GetAllHandler(done){
     db.get().query(
-        'SELECT * FROM friends LIMIT 100', function SelectQueryHandler(err, result, fields){
+        'SELECT * FROM friends LIMIT 600', function SelectQueryHandler(err, result, fields){
             if (err)
                 return done(err);
             done(null, result, fields);
