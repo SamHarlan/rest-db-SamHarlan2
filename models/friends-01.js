@@ -47,7 +47,7 @@ exports.findByName = function FindByNameHandler(name, done){
 exports.delete = function FriendsDeleteHandler(id,done) {
 
     db.get().query(
-        'DELETE * FROM friends WHERE friend_id = ?', id, 
+        'DELETE FROM friends WHERE friend_id = ?', id, 
         function DeleteQueryHandler(err, result, fields){
             if (err)
                 return done(err);
