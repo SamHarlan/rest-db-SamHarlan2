@@ -56,6 +56,7 @@ exports.delete = function FriendsDeleteHandler(id,done) {
 }
 
 exports.update = function FriendsUpdateHandler(id, birthDate, firstName, lastName, gender, phone, done) {
+    console.log("entered update function");
     var values = [new Date(birthDate).toISOString().slice(0, 19).replace('T', ' '), firstName, lastName, gender, phone];
     db.get().query(
         'UPDATE friends SET (birth_date, first_name, last_name, gender, phone) ' + 'VALUES (?,?,?,?,?)', values + 'WHERE friend_id = ?', id,
