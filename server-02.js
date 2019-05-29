@@ -43,4 +43,4 @@ app.use('/api', router);
 // START THE SERVER
 // =============================================================================
 app.listen(port);
-console.log('Version 2: Magic happens on port ' + port);
+console.log('Version 2: Magic happens at http://leia.cs.spu.edu:' + port + '/api/friends');

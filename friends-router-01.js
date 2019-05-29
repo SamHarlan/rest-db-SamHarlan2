@@ -5,7 +5,7 @@ var friendModel = require('./models/friends-01');
 
 
 //******************* */
-router.put('/friends/:id/:birthDate/:firstName', function FriendsPutHandler() {
+router.put('/friends/:id/:birthDate/:firstName', function FriendsUpdateHandler(request,response) {
     friendModel.update( 
         request.body.birthDate,
         request.body.firstName,
@@ -23,7 +23,7 @@ router.put('/friends/:id/:birthDate/:firstName', function FriendsPutHandler() {
         } );
 });
 
-router.delete('/friends', function FriendsPutHandler() {
+router.delete('/friends', function FriendsDeleteHandler(request, response) {
     friendModel.delete(request.params.id, function DoneGettingById(err, result, fields){
         if (err){
             console.log("Some error deleting");
@@ -38,8 +38,7 @@ router.delete('/friends', function FriendsPutHandler() {
 });
 //******************** */
 
-router.post('/friends', 
-    function FriendsPostHandler(request, response){
+router.post('/friends', function FriendsPostHandler(request, response){
         friendModel.insert( 
             request.body.birthDate,
             request.body.firstName,
