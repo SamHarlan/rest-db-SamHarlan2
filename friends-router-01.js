@@ -7,6 +7,7 @@ var friendModel = require('./models/friends-01');
 //******************* */
 router.put('/friends', function FriendsUpdateHandler(request,response) {
     friendModel.update( 
+        request.body.id,
         request.body.birthDate,
         request.body.firstName,
         request.body.lastName,
