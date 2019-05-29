@@ -12,7 +12,7 @@ var db = require('./db');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-var port = 3000;        // set our port
+var port = 3010;        // set our port
 
 // ROUTES FOR OUR API
 // =============================================================================
