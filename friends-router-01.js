@@ -23,7 +23,7 @@ router.put('/friends/:id/:birthDate/:firstName', function FriendsPutHandler() {
         } );
 });
 
-router.delete('/friends/:id', function FriendsPutHandler() {
+router.delete('/friends', function FriendsPutHandler() {
     friendModel.delete(request.params.id, function DoneGettingById(err, result, fields){
         if (err){
             console.log("Some error deleting");
