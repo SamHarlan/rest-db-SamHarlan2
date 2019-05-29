@@ -70,4 +70,17 @@ router.get('/friends', function FriendsGetHandler(request, response){
     });
 });
 
+router.get('/:id', function FriendsGetHandler(request, response){
+    friendModel.findById(function DoneGettingAll(err, result, fields){
+        if (err) {
+            console.log("Some error selecting all");
+            console.log(err);
+            response.write("Error Getting All");
+        } else {
+            console.log("Successfully retrieve all records (100)");
+            response.json(result);
+        }
+    });
+});
+
 module.exports = router;
