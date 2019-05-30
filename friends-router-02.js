@@ -10,7 +10,7 @@ router.get('/api', function HomePageHandler(request, response) {
 });
 
 //******************* */
-router.put('/friends/:id/:birthDate/:firstName', function FriendsPutHandler() {
+router.put('/friends', function FriendsPutHandler() {
     friendModel.update( 
         request.body.birthDate,
         request.body.firstName,
@@ -28,7 +28,7 @@ router.put('/friends/:id/:birthDate/:firstName', function FriendsPutHandler() {
         } );
 });
 
-router.delete('/friends/:id', function FriendsPutHandler() {
+router.delete('/friends', function FriendsPutHandler() {
     friendModel.delete(request.params.id, function DoneGettingById(err, result, fields){
         if (err){
             console.log("Some error deleting");
